@@ -18,6 +18,8 @@ class SearchBar extends React.Component {
 
         this.handleSearch = this.handleSearch.bind(this);
 
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+
         this.sortByOptions = {
             'Best Match': 'best_match',
             'Highest Rated': 'rating',
@@ -48,6 +50,16 @@ class SearchBar extends React.Component {
         event.preventDefault();
     }
 
+    handleKeyPress(event) {
+        if (event.keyCode === 13) {
+            this.handleSearch(event);
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyPress);
+    }
+
     renderSortByOptions() {
         return Object.keys(this.sortByOptions).map(sortByOption => {
             let sortByOptionValue = this.sortByOptions[sortByOption];
@@ -58,6 +70,7 @@ class SearchBar extends React.Component {
                 </li>);
         });
     }
+
     render() {
         return (
             <div className="SearchBar">

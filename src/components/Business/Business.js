@@ -4,26 +4,27 @@ import './Business.css';
 
 class Business extends React.Component {
     render() {
+        const {business} = this.props;
         return (
             <div className="Business">
                 <div className="image-container">
-                    <a href={this.props.business.url} target="_blank" rel="noopener noreferrer">
-                        <img src={this.props.business.imageSrc} alt=''/>
+                    <a href={business.url} target="_blank" rel="noopener noreferrer">
+                        <img src={business.imageSrc} alt=''/>
                     </a>
                 </div>
-                    <h2>{this.props.business.name}</h2>
+                    <h2>{business.name}</h2>
                     <div className="Business-information">
                         <div className="Business-address">
-                            <a href={`https://www.google.com/maps/search/?api=1&query=${this.props.business.address}%2C+${this.props.business.city}%2C+${this.props.business.state}`} target="_blank" rel="noopener noreferrer">
-                                <p>{this.props.business.address}</p>
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${business.address}%2C+${business.city}%2C+${business.state}`} target="_blank" rel="noopener noreferrer">
+                                <p>{business.address}</p>
                             </a>
-                            <p>{this.props.business.city}</p>
-                            <p>{`${this.props.business.state} ${this.props.business.zipCode}`}</p>
+                            <p>{business.city}</p>
+                            <p>{`${business.state} ${business.zipCode}`}</p>
                         </div>
                         <div className="Business-reviews">
-                            <h3>{this.props.business.category}</h3>
-                            <h3 className="rating">{this.props.business.rating}</h3>
-                            <p>{`${this.props.business.reviewCount} reviews`}</p>
+                            <h3>{business.category}</h3>
+                            <h3 className="rating">{business.rating}</h3>
+                            <p>{`${business.reviewCount} reviews`}</p>
                         </div>
                     </div>
             </div>
